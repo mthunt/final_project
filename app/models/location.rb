@@ -14,6 +14,10 @@ class Location < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :geographies,
+             :through => :location_geographies,
+             :source => :geography
+
   has_many   :features,
              :through => :location_features,
              :source => :feature

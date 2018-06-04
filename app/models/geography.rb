@@ -6,6 +6,10 @@ class Geography < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :locations,
+             :through => :location_geographies,
+             :source => :location
+
   # Validations
 
 end
