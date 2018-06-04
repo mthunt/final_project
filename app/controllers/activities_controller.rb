@@ -23,6 +23,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new
 
     @activity.activity = params[:activity]
+    @activity.category = params[:category]
 
     save_status = @activity.save
 
@@ -50,6 +51,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
 
     @activity.activity = params[:activity]
+    @activity.category = params[:category]
 
     save_status = @activity.save
 

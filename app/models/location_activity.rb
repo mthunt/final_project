@@ -6,7 +6,8 @@ class LocationActivity < ApplicationRecord
              :foreign_key => "activity_id"
 
   belongs_to :city,
-             :class_name => "Location"
+             :class_name => "Location",
+             :foreign_key => "location_id"
 
   # Indirect associations
 

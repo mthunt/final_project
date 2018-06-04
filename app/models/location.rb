@@ -1,4 +1,6 @@
 class Location < ApplicationRecord
+  mount_uploader :image, ImageUploader
+
   # Direct associations
 
   has_many   :location_geographies,
@@ -6,7 +8,6 @@ class Location < ApplicationRecord
 
   has_many   :location_features,
              :class_name => "LocationActivity",
-             :foreign_key => "city_id",
              :dependent => :destroy
 
   has_many   :location_weathers,

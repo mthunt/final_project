@@ -116,6 +116,7 @@
         <th>Country name</th>
         <th>Lat</th>
         <th>Long</th>
+        <th>Image</th>
         <th>Actions</th>
       </tr>
 
@@ -126,6 +127,7 @@
         <td><%= location.country_name %></td>
         <td><%= location.lat %></td>
         <td><%= location.long %></td>
+        <td><img src='<%= location.image %>' class='img-responsive'></td>
         <td>
           <a href="/locations/<%= location.id %>" class="btn btn-primary">Show</a>
           <a href="/locations/<%= location.id %>/edit" class="btn btn-warning">Edit</a>

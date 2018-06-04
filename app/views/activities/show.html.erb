@@ -8,6 +8,9 @@
       <dt>Activity</dt>
       <dd><%= @activity.activity %></dd>
 
+      <dt>Category</dt>
+      <dd><%= @activity.category %></dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
@@ -36,7 +39,7 @@
       <% @activity.location_features.each do |location_activity| %>
         <li class="list-group-item">
           <a href="/location_activities/<%= location_activity.id %>">
-            <%= location_activity.city_id %>
+            <%= location_activity.location_id %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/location_activities/<%= location_activity.id %>" class="btn btn-primary">
@@ -57,13 +60,13 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for city_id -->
+      <!-- Label and input for location_id -->
       <div class="form-group">
-        <label for="city_id" class="control-label">
-          City
+        <label for="location_id" class="control-label">
+          Location
         </label>
 
-        <%= select_tag(:city_id, options_from_collection_for_select(Location.all, :id, :city_name), :class => "form-control") %>
+        <%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :city_name), :class => "form-control") %>
       </div>
 
       <!-- Label and input for activity_id -->
