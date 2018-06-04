@@ -14,6 +14,11 @@
   </div>
 
 <div class="form-group">
+    <%= f.label :image_cont, "Image contains" %>
+    <%= f.text_field :image_cont, :class => "form-control", :placeholder => "Image contains" %>
+  </div>
+
+<div class="form-group">
   <%= f.label :long, "Long" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
@@ -116,6 +121,7 @@
         <th>Country name</th>
         <th>Lat</th>
         <th>Long</th>
+        <th>Image</th>
         <th>Actions</th>
       </tr>
 
@@ -126,6 +132,7 @@
         <td><%= location.country_name %></td>
         <td><%= location.lat %></td>
         <td><%= location.long %></td>
+        <td><%= location.image %></td>
         <td>
           <a href="/locations/<%= location.id %>" class="btn btn-primary">Show</a>
           <a href="/locations/<%= location.id %>/edit" class="btn btn-warning">Edit</a>

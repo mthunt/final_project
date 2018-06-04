@@ -4,8 +4,9 @@ class CreateLocations < ActiveRecord::Migration
       t.string :city_name
       t.string :state_name
       t.string :country_name
-      t.integer :lat
-      t.integer :long
+      t.float :lat
+      t.float :long
+      t.string :image
 
       t.timestamps
 

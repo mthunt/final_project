@@ -29,6 +29,7 @@ class LocationsController < ApplicationController
     @location.country_name = params[:country_name]
     @location.lat = params[:lat]
     @location.long = params[:long]
+    @location.image = params[:image]
 
     save_status = @location.save
 
@@ -60,6 +61,7 @@ class LocationsController < ApplicationController
     @location.country_name = params[:country_name]
     @location.lat = params[:lat]
     @location.long = params[:long]
+    @location.image = params[:image]
 
     save_status = @location.save
 
