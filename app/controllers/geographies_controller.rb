@@ -6,6 +6,7 @@ class GeographiesController < ApplicationController
   end
 
   def show
+    @location_geography = LocationGeography.new
     @geography = Geography.find(params[:id])
 
     render("geographies/show.html.erb")

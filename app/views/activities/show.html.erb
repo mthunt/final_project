@@ -51,6 +51,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_location_activity" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for city_id -->
+      <div class="form-group">
+        <label for="city_id" class="control-label">
+          City
+        </label>
+
+        <%= select_tag(:city_id, options_from_collection_for_select(Location.all, :id, :city_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for activity_id -->
+      <input type="hidden" name="activity_id" value="<%= @activity.id %>">
+
+      <!-- Label and input for feature_rating -->
+      <div class="form-group">
+        <label for="feature_rating" class="control-label">
+          Feature rating
+        </label>
+
+        <input type="text" id="feature_rating" name="feature_rating" placeholder="Feature rating" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Location Activity
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

@@ -63,6 +63,47 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_location_weather" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for location_id -->
+      <input type="hidden" name="location_id" value="<%= @location.id %>">
+
+      <!-- Label and input for month -->
+      <div class="form-group">
+        <label for="month" class="control-label">
+          Month
+        </label>
+
+        <input type="text" id="month" name="month" placeholder="Month" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for temperature -->
+      <div class="form-group">
+        <label for="temperature" class="control-label">
+          Temperature
+        </label>
+
+        <input type="text" id="temperature" name="temperature" placeholder="Temperature" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for weather -->
+      <div class="form-group">
+        <label for="weather" class="control-label">
+          Weather
+        </label>
+
+        <input type="text" id="weather" name="weather" placeholder="Weather" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Location Weather
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -94,6 +135,44 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_location_activity" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for city_id -->
+      <div class="form-group">
+        <label for="city_id" class="control-label">
+          City
+        </label>
+
+        <%= select_tag(:city_id, options_from_collection_for_select(Location.all, :id, :city_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for activity_id -->
+      <div class="form-group">
+        <label for="activity_id" class="control-label">
+          Activity
+        </label>
+
+        <%= select_tag(:activity_id, options_from_collection_for_select(Activity.all, :id, :activity), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for feature_rating -->
+      <div class="form-group">
+        <label for="feature_rating" class="control-label">
+          Feature rating
+        </label>
+
+        <input type="text" id="feature_rating" name="feature_rating" placeholder="Feature rating" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Location Activity
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -125,6 +204,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_location_geography" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for geography_id -->
+      <div class="form-group">
+        <label for="geography_id" class="control-label">
+          Geography
+        </label>
+
+        <%= select_tag(:geography_id, options_from_collection_for_select(Geography.all, :id, :geography), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for location_id -->
+      <input type="hidden" name="location_id" value="<%= @location.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Location Geography
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

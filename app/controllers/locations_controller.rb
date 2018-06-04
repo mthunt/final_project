@@ -6,6 +6,9 @@ class LocationsController < ApplicationController
   end
 
   def show
+    @location_geography = LocationGeography.new
+    @location_activity = LocationActivity.new
+    @location_weather = LocationWeather.new
     @location = Location.find(params[:id])
 
     render("locations/show.html.erb")
