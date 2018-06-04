@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @location_weather.errors.any? %>
+  <% @location_weather.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Location Weather</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_location_weather" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for location_id -->
+      <div class="form-group">
+        <label for="location_id" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location_id" name="location_id" placeholder="Location" class="form-control" value="<%= @location_weather.location_id %>">
+      </div>
+
+      <!-- Label and input for month -->
+      <div class="form-group">
+        <label for="month" class="control-label">
+          Month
+        </label>
+
+        <input type="text" id="month" name="month" placeholder="Month" class="form-control" value="<%= @location_weather.month %>">
+      </div>
+
+      <!-- Label and input for temperature -->
+      <div class="form-group">
+        <label for="temperature" class="control-label">
+          Temperature
+        </label>
+
+        <input type="text" id="temperature" name="temperature" placeholder="Temperature" class="form-control" value="<%= @location_weather.temperature %>">
+      </div>
+
+      <!-- Label and input for weather -->
+      <div class="form-group">
+        <label for="weather" class="control-label">
+          Weather
+        </label>
+
+        <input type="text" id="weather" name="weather" placeholder="Weather" class="form-control" value="<%= @location_weather.weather %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Location Weather
+      </button>
+      or
+      <a href="/location_weathers">Cancel</a>
+    </form>
+  </div>
+</div>
