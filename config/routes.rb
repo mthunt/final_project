@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Geography resource:
+  # CREATE
+  get "/geographies/new", :controller => "geographies", :action => "new"
+  post "/create_geography", :controller => "geographies", :action => "create"
+
+  # READ
+  get "/geographies", :controller => "geographies", :action => "index"
+  get "/geographies/:id", :controller => "geographies", :action => "show"
+
+  # UPDATE
+  get "/geographies/:id/edit", :controller => "geographies", :action => "edit"
+  post "/update_geography/:id", :controller => "geographies", :action => "update"
+
+  # DELETE
+  get "/delete_geography/:id", :controller => "geographies", :action => "destroy"
+  #------------------------------
+
   # Routes for the Activity resource:
   # CREATE
   get "/activities/new", :controller => "activities", :action => "new"
