@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @location.errors.any? %>
+  <% @location.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Location</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_location" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for city_name -->
+      <div class="form-group">
+        <label for="city_name" class="control-label">
+          City name
+        </label>
+
+        <input type="text" id="city_name" name="city_name" placeholder="City name" class="form-control" value="<%= @location.city_name %>">
+      </div>
+
+      <!-- Label and input for state_name -->
+      <div class="form-group">
+        <label for="state_name" class="control-label">
+          State name
+        </label>
+
+        <input type="text" id="state_name" name="state_name" placeholder="State name" class="form-control" value="<%= @location.state_name %>">
+      </div>
+
+      <!-- Label and input for country_name -->
+      <div class="form-group">
+        <label for="country_name" class="control-label">
+          Country name
+        </label>
+
+        <input type="text" id="country_name" name="country_name" placeholder="Country name" class="form-control" value="<%= @location.country_name %>">
+      </div>
+
+      <!-- Label and input for lat -->
+      <div class="form-group">
+        <label for="lat" class="control-label">
+          Lat
+        </label>
+
+        <input type="text" id="lat" name="lat" placeholder="Lat" class="form-control" value="<%= @location.lat %>">
+      </div>
+
+      <!-- Label and input for long -->
+      <div class="form-group">
+        <label for="long" class="control-label">
+          Long
+        </label>
+
+        <input type="text" id="long" name="long" placeholder="Long" class="form-control" value="<%= @location.long %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Location
+      </button>
+      or
+      <a href="/locations">Cancel</a>
+    </form>
+  </div>
+</div>
