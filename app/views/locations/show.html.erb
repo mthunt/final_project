@@ -35,3 +35,158 @@
     </div>
   </div>
 </div>
+
+<!-- A Location has many location_weathers -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Location Weathers
+      </li>
+
+      <% @location.location_weathers.each do |location_weather| %>
+        <li class="list-group-item">
+          <a href="/location_weathers/<%= location_weather.id %>">
+            <%= location_weather.location_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/location_weathers/<%= location_weather.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/location_weathers/<%= location_weather.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_location_weather/<%= location_weather.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Location has many location_features -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Location Features
+      </li>
+
+      <% @location.location_features.each do |location_activity| %>
+        <li class="list-group-item">
+          <a href="/location_activities/<%= location_activity.id %>">
+            <%= location_activity.city_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/location_activities/<%= location_activity.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/location_activities/<%= location_activity.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_location_activity/<%= location_activity.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Location has many location_geographies -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Location Geographies
+      </li>
+
+      <% @location.location_geographies.each do |location_geography| %>
+        <li class="list-group-item">
+          <a href="/location_geographies/<%= location_geography.id %>">
+            <%= location_geography.geography_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/location_geographies/<%= location_geography.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/location_geographies/<%= location_geography.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_location_geography/<%= location_geography.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Location has many features -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Features
+      </li>
+
+      <% @location.features.each do |activity| %>
+        <li class="list-group-item">
+          <a href="/activities/<%= activity.id %>">
+            <%= activity.activity %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/activities/<%= activity.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/activities/<%= activity.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_activity/<%= activity.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Location has many geographies -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Geographies
+      </li>
+
+      <% @location.geographies.each do |geography| %>
+        <li class="list-group-item">
+          <a href="/geographies/<%= geography.id %>">
+            <%= geography.geography %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/geographies/<%= geography.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/geographies/<%= geography.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_geography/<%= geography.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

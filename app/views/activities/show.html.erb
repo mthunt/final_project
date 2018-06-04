@@ -23,3 +23,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Activity has many location_features -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Location Features
+      </li>
+
+      <% @activity.location_features.each do |location_activity| %>
+        <li class="list-group-item">
+          <a href="/location_activities/<%= location_activity.id %>">
+            <%= location_activity.city_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/location_activities/<%= location_activity.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/location_activities/<%= location_activity.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_location_activity/<%= location_activity.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Activity has many cities -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Cities
+      </li>
+
+      <% @activity.cities.each do |location| %>
+        <li class="list-group-item">
+          <a href="/locations/<%= location.id %>">
+            <%= location.city_name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/locations/<%= location.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/locations/<%= location.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_location/<%= location.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
