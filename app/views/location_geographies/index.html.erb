@@ -17,7 +17,7 @@
       <% @location_geographies.each do |location_geography| %>
       <tr>
         <td><%= location_geography.geography.geography %></td>
-        <td><%= location_geography.location_id %></td>
+        <td><%= location_geography.location.city_name %></td>
         <td>
           <a href="/location_geographies/<%= location_geography.id %>" class="btn btn-primary">Show</a>
           <a href="/location_geographies/<%= location_geography.id %>/edit" class="btn btn-warning">Edit</a>
