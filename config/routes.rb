@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "locations#index"
   # Routes for the Location_geography resource:
   # CREATE
   get "/location_geographies/new", :controller => "location_geographies", :action => "new"
