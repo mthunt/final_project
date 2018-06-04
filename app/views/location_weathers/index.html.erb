@@ -18,7 +18,7 @@
 
       <% @location_weathers.each do |location_weather| %>
       <tr>
-        <td><%= location_weather.location_id %></td>
+        <td><%= location_weather.location.city_name %></td>
         <td><%= location_weather.month %></td>
         <td><%= location_weather.temperature %></td>
         <td><%= location_weather.weather %></td>
