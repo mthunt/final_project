@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @location_activity.errors.any? %>
+  <% @location_activity.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Location Activity #<%= @location_activity.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_location_activity/<%= @location_activity.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for city_id -->
+      <div class="form-group">
+        <label for="city_id" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city_id" name="city_id" placeholder="City" class="form-control" value="<%= @location_activity.city_id %>">
+      </div>
+
+      <!-- Label and input for activity_id -->
+      <div class="form-group">
+        <label for="activity_id" class="control-label">
+          Activity
+        </label>
+
+        <input type="text" id="activity_id" name="activity_id" placeholder="Activity" class="form-control" value="<%= @location_activity.activity_id %>">
+      </div>
+
+      <!-- Label and input for feature_rating -->
+      <div class="form-group">
+        <label for="feature_rating" class="control-label">
+          Feature rating
+        </label>
+
+        <input type="text" id="feature_rating" name="feature_rating" placeholder="Feature rating" class="form-control" value="<%= @location_activity.feature_rating %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Location Activity
+      </button>
+      or
+      <a href="/location_activities/<%= @location_activity.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

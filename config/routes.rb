@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Location_activity resource:
+  # CREATE
+  get "/location_activities/new", :controller => "location_activities", :action => "new"
+  post "/create_location_activity", :controller => "location_activities", :action => "create"
+
+  # READ
+  get "/location_activities", :controller => "location_activities", :action => "index"
+  get "/location_activities/:id", :controller => "location_activities", :action => "show"
+
+  # UPDATE
+  get "/location_activities/:id/edit", :controller => "location_activities", :action => "edit"
+  post "/update_location_activity/:id", :controller => "location_activities", :action => "update"
+
+  # DELETE
+  get "/delete_location_activity/:id", :controller => "location_activities", :action => "destroy"
+  #------------------------------
+
   # Routes for the Location_weather resource:
   # CREATE
   get "/location_weathers/new", :controller => "location_weathers", :action => "new"
