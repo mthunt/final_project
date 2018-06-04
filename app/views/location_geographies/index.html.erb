@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Location geographies
+    <a href="/location_geographies/new" class="btn btn-lg btn-success">New Location geography</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Geography</th>
+        <th>Location</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @location_geographies.each do |location_geography| %>
+      <tr>
+        <td><%= location_geography.geography_id %></td>
+        <td><%= location_geography.location_id %></td>
+        <td>
+          <a href="/location_geographies/<%= location_geography.id %>" class="btn btn-primary">Show</a>
+          <a href="/location_geographies/<%= location_geography.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_location_geography/<%= location_geography.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

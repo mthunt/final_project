@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @location_geography.errors.any? %>
+  <% @location_geography.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Location Geography #<%= @location_geography.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_location_geography/<%= @location_geography.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for geography_id -->
+      <div class="form-group">
+        <label for="geography_id" class="control-label">
+          Geography
+        </label>
+
+        <input type="text" id="geography_id" name="geography_id" placeholder="Geography" class="form-control" value="<%= @location_geography.geography_id %>">
+      </div>
+
+      <!-- Label and input for location_id -->
+      <div class="form-group">
+        <label for="location_id" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location_id" name="location_id" placeholder="Location" class="form-control" value="<%= @location_geography.location_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Location Geography
+      </button>
+      or
+      <a href="/location_geographies/<%= @location_geography.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
