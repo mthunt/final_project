@@ -17,7 +17,7 @@
 
       <% @location_activities.each do |location_activity| %>
       <tr>
-        <td><%= location_activity.city_id %></td>
+        <td><%= location_activity.city.city_name %></td>
         <td><%= location_activity.activity_id %></td>
         <td><%= location_activity.feature_rating %></td>
         <td>
