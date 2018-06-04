@@ -1,6 +1,9 @@
 class Location < ApplicationRecord
   # Direct associations
 
+  has_many   :location_geographies,
+             :dependent => :destroy
+
   has_many   :location_features,
              :class_name => "LocationActivity",
              :foreign_key => "city_id",
