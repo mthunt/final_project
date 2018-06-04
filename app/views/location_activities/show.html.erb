@@ -5,10 +5,10 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>City</dt>
+      <dt>Location</dt>
       <dd>
         <% if @location_activity.city.present? %>
-          <a href="/locations/<%= @location_activity.city_id %>">
+          <a href="/locations/<%= @location_activity.location_id %>">
             <%= @location_activity.city.city_name %>
           </a>
         <% end %>

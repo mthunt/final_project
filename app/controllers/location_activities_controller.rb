@@ -21,7 +21,7 @@ class LocationActivitiesController < ApplicationController
   def create
     @location_activity = LocationActivity.new
 
-    @location_activity.city_id = params[:city_id]
+    @location_activity.location_id = params[:location_id]
     @location_activity.activity_id = params[:activity_id]
     @location_activity.feature_rating = params[:feature_rating]
 
@@ -50,7 +50,7 @@ class LocationActivitiesController < ApplicationController
   def update
     @location_activity = LocationActivity.find(params[:id])
 
-    @location_activity.city_id = params[:city_id]
+    @location_activity.location_id = params[:location_id]
     @location_activity.activity_id = params[:activity_id]
     @location_activity.feature_rating = params[:feature_rating]
 
