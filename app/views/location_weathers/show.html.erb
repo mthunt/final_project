@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Location</dt>
-      <dd><%= @location_weather.location_id %></dd>
+      <dd>
+        <% if @location_weather.location.present? %>
+          <a href="/locations/<%= @location_weather.location_id %>">
+            <%= @location_weather.location.city_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Month</dt>
       <dd><%= @location_weather.month %></dd>

@@ -18,7 +18,13 @@
 
       <% @location_weathers.each do |location_weather| %>
       <tr>
-        <td><%= location_weather.location.city_name %></td>
+        <td>
+          <% if location_weather.location.present? %>
+            <a href="/locations/<%= location_weather.location.id %>">
+              <%= location_weather.location.city_name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= location_weather.month %></td>
         <td><%= location_weather.temperature %></td>
         <td><%= location_weather.weather %></td>

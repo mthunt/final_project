@@ -17,8 +17,20 @@
 
       <% @location_activities.each do |location_activity| %>
       <tr>
-        <td><%= location_activity.city.city_name %></td>
-        <td><%= location_activity.feature.activity %></td>
+        <td>
+          <% if location_activity.city.present? %>
+            <a href="/locations/<%= location_activity.city.id %>">
+              <%= location_activity.city.city_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if location_activity.feature.present? %>
+            <a href="/activities/<%= location_activity.feature.id %>">
+              <%= location_activity.feature.activity %>
+            </a>
+          <% end %>
+        </td>
         <td><%= location_activity.feature_rating %></td>
         <td>
           <a href="/location_activities/<%= location_activity.id %>" class="btn btn-primary">Show</a>

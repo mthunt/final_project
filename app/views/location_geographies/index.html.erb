@@ -16,8 +16,20 @@
 
       <% @location_geographies.each do |location_geography| %>
       <tr>
-        <td><%= location_geography.geography.geography %></td>
-        <td><%= location_geography.location.city_name %></td>
+        <td>
+          <% if location_geography.geography.present? %>
+            <a href="/geographies/<%= location_geography.geography.id %>">
+              <%= location_geography.geography.geography %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if location_geography.location.present? %>
+            <a href="/locations/<%= location_geography.location.id %>">
+              <%= location_geography.location.city_name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/location_geographies/<%= location_geography.id %>" class="btn btn-primary">Show</a>
           <a href="/location_geographies/<%= location_geography.id %>/edit" class="btn btn-warning">Edit</a>

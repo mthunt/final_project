@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>City</dt>
-      <dd><%= @location_activity.city_id %></dd>
+      <dd>
+        <% if @location_activity.city.present? %>
+          <a href="/locations/<%= @location_activity.city_id %>">
+            <%= @location_activity.city.city_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Activity</dt>
-      <dd><%= @location_activity.activity_id %></dd>
+      <dd>
+        <% if @location_activity.feature.present? %>
+          <a href="/activities/<%= @location_activity.activity_id %>">
+            <%= @location_activity.feature.activity %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Feature rating</dt>
       <dd><%= @location_activity.feature_rating %></dd>
