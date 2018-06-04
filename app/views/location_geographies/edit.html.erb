@@ -24,7 +24,7 @@
           Geography
         </label>
 
-        <input type="text" id="geography_id" name="geography_id" placeholder="Geography" class="form-control" value="<%= @location_geography.geography_id %>">
+        <%= select_tag(:geography_id, options_from_collection_for_select(Geography.all, :id, :geography, @location_geography.geography_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for location_id -->
