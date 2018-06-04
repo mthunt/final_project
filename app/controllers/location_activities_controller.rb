@@ -1,6 +1,7 @@
 class LocationActivitiesController < ApplicationController
   def index
-    @location_activities = LocationActivity.page(params[:page]).per(10)
+    @q = LocationActivity.ransack(params[:q])
+    @location_activities = @q.result(:distinct => true).includes(:city, :feature).page(params[:page]).per(10)
 
     render("location_activities/index.html.erb")
   end

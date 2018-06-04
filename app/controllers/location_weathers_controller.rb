@@ -1,6 +1,7 @@
 class LocationWeathersController < ApplicationController
   def index
-    @location_weathers = LocationWeather.page(params[:page]).per(10)
+    @q = LocationWeather.ransack(params[:q])
+    @location_weathers = @q.result(:distinct => true).includes(:location).page(params[:page]).per(10)
 
     render("location_weathers/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class LocationGeographiesController < ApplicationController
   def index
-    @location_geographies = LocationGeography.page(params[:page]).per(10)
+    @q = LocationGeography.ransack(params[:q])
+    @location_geographies = @q.result(:distinct => true).includes(:location, :geography).page(params[:page]).per(10)
 
     render("location_geographies/index.html.erb")
   end
