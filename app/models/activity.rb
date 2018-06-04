@@ -7,6 +7,10 @@ class Activity < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :cities,
+             :through => :location_features,
+             :source => :city
+
   # Validations
 
 end
