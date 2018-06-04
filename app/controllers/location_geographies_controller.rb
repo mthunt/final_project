@@ -1,6 +1,6 @@
 class LocationGeographiesController < ApplicationController
   def index
-    @location_geographies = LocationGeography.all
+    @location_geographies = LocationGeography.page(params[:page]).per(10)
 
     render("location_geographies/index.html.erb")
   end

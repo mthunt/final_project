@@ -1,6 +1,6 @@
 class LocationWeathersController < ApplicationController
   def index
-    @location_weathers = LocationWeather.all
+    @location_weathers = LocationWeather.page(params[:page]).per(10)
 
     render("location_weathers/index.html.erb")
   end
